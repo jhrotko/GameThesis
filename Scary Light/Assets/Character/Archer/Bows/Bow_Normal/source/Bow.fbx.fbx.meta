@@ -1,0 +1,295 @@
+fileFormatVersion: 2
+guid: 41bc21c6cdba16345bd79c623b85ba82
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: arco02
+    100002: arco03
+    100004: arco04
+    100006: //RootNode
+    100008: polySurface1
+    100010: polySurface1 1
+    100012: polySurface10
+    100014: polySurface11
+    100016: polySurface12
+    100018: polySurface13
+    100020: polySurface14
+    100022: polySurface15
+    100024: polySurface16
+    100026: polySurface17
+    100028: polySurface18
+    100030: polySurface19
+    100032: polySurface2
+    100034: polySurface2 1
+    100036: polySurface20
+    100038: polySurface21
+    100040: polySurface22
+    100042: polySurface23
+    100044: polySurface24
+    100046: polySurface25
+    100048: polySurface26
+    100050: polySurface27
+    100052: polySurface28
+    100054: polySurface3
+    100056: polySurface3 1
+    100058: polySurface4
+    100060: polySurface4 1
+    100062: polySurface5
+    100064: polySurface5 1
+    100066: polySurface6
+    100068: polySurface6 1
+    100070: polySurface7
+    100072: polySurface7 1
+    100074: polySurface8
+    100076: polySurface8 1
+    400000: arco02
+    400002: arco03
+    400004: arco04
+    400006: //RootNode
+    400008: polySurface1
+    400010: polySurface1 1
+    400012: polySurface10
+    400014: polySurface11
+    400016: polySurface12
+    400018: polySurface13
+    400020: polySurface14
+    400022: polySurface15
+    400024: polySurface16
+    400026: polySurface17
+    400028: polySurface18
+    400030: polySurface19
+    400032: polySurface2
+    400034: polySurface2 1
+    400036: polySurface20
+    400038: polySurface21
+    400040: polySurface22
+    400042: polySurface23
+    400044: polySurface24
+    400046: polySurface25
+    400048: polySurface26
+    400050: polySurface27
+    400052: polySurface28
+    400054: polySurface3
+    400056: polySurface3 1
+    400058: polySurface4
+    400060: polySurface4 1
+    400062: polySurface5
+    400064: polySurface5 1
+    400066: polySurface6
+    400068: polySurface6 1
+    400070: polySurface7
+    400072: polySurface7 1
+    400074: polySurface8
+    400076: polySurface8 1
+    2100000: blinn1
+    2300000: polySurface1
+    2300002: polySurface1 1
+    2300004: polySurface10
+    2300006: polySurface11
+    2300008: polySurface12
+    2300010: polySurface13
+    2300012: polySurface14
+    2300014: polySurface15
+    2300016: polySurface16
+    2300018: polySurface17
+    2300020: polySurface18
+    2300022: polySurface19
+    2300024: polySurface2
+    2300026: polySurface2 1
+    2300028: polySurface20
+    2300030: polySurface21
+    2300032: polySurface22
+    2300034: polySurface23
+    2300036: polySurface24
+    2300038: polySurface25
+    2300040: polySurface26
+    2300042: polySurface27
+    2300044: polySurface28
+    2300046: polySurface3
+    2300048: polySurface3 1
+    2300050: polySurface4
+    2300052: polySurface4 1
+    2300054: polySurface5
+    2300056: polySurface5 1
+    2300058: polySurface6
+    2300060: polySurface6 1
+    2300062: polySurface7
+    2300064: polySurface7 1
+    2300066: polySurface8
+    2300068: polySurface8 1
+    3300000: polySurface1
+    3300002: polySurface1 1
+    3300004: polySurface10
+    3300006: polySurface11
+    3300008: polySurface12
+    3300010: polySurface13
+    3300012: polySurface14
+    3300014: polySurface15
+    3300016: polySurface16
+    3300018: polySurface17
+    3300020: polySurface18
+    3300022: polySurface19
+    3300024: polySurface2
+    3300026: polySurface2 1
+    3300028: polySurface20
+    3300030: polySurface21
+    3300032: polySurface22
+    3300034: polySurface23
+    3300036: polySurface24
+    3300038: polySurface25
+    3300040: polySurface26
+    3300042: polySurface27
+    3300044: polySurface28
+    3300046: polySurface3
+    3300048: polySurface3 1
+    3300050: polySurface4
+    3300052: polySurface4 1
+    3300054: polySurface5
+    3300056: polySurface5 1
+    3300058: polySurface6
+    3300060: polySurface6 1
+    3300062: polySurface7
+    3300064: polySurface7 1
+    3300066: polySurface8
+    3300068: polySurface8 1
+    4300000: polySurface1
+    4300002: polySurface2
+    4300004: polySurface3
+    4300006: polySurface4
+    4300008: polySurface5
+    4300010: polySurface6
+    4300012: polySurface7
+    4300014: polySurface8
+    4300016: polySurface10
+    4300018: polySurface11
+    4300020: polySurface12
+    4300022: polySurface13
+    4300024: polySurface14
+    4300026: polySurface15
+    4300028: polySurface16
+    4300030: polySurface17
+    4300032: polySurface18
+    4300034: polySurface19
+    4300036: polySurface20
+    4300038: polySurface21
+    4300040: polySurface22
+    4300042: polySurface23
+    4300044: polySurface24
+    4300046: polySurface25
+    4300048: polySurface26
+    4300050: polySurface27
+    4300052: polySurface28
+    4300054: polySurface1
+    4300056: polySurface2
+    4300058: polySurface3
+    4300060: polySurface4
+    4300062: polySurface5
+    4300064: polySurface6
+    4300066: polySurface7
+    4300068: polySurface8
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: bdacf38176a02a64abf2a2aca523780a, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bow [Albedo]
+    second: {fileID: 2800000, guid: 55e1a9d006265ca4dbf30db74df31d3e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bow diffuse
+    second: {fileID: 2800000, guid: a650c5e9ae168ac49bcb383a09a44895, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bow normal
+    second: {fileID: 2800000, guid: 63dbde0d844da2c448ec238d4d5e1c02, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: bow specularColor
+    second: {fileID: 2800000, guid: 554848ed35bf2f446898178a484178f5, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

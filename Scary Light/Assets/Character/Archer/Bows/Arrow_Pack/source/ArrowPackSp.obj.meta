@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: de5068d350dde3247b5aa229f277736c
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BaseArrow_BaseArrow
+    100004: BrokenArrow_BrokenArrow
+    100006: ElfArrow_ElfArrow
+    100008: MetallBloodyArrow_MetallBloodyArrow
+    100010: StoneArrow_StoneArrow
+    100012: StunArrow_StunArrow
+    400000: //RootNode
+    400002: BaseArrow_BaseArrow
+    400004: BrokenArrow_BrokenArrow
+    400006: ElfArrow_ElfArrow
+    400008: MetallBloodyArrow_MetallBloodyArrow
+    400010: StoneArrow_StoneArrow
+    400012: StunArrow_StunArrow
+    2100000: BaseArrow_BaseArrowMat
+    2100002: BrokenArrow_BrokenArrowMat
+    2100004: ElfArrow_ElfArrowMat
+    2100006: MetallBloodyArrow_MetallBloodyArrowMat
+    2100008: StoneArrow_StoneArrowMat
+    2100010: StunArrow_StunArrowMat
+    2300000: BaseArrow_BaseArrow
+    2300002: BrokenArrow_BrokenArrow
+    2300004: ElfArrow_ElfArrow
+    2300006: MetallBloodyArrow_MetallBloodyArrow
+    2300008: StoneArrow_StoneArrow
+    2300010: StunArrow_StunArrow
+    3300000: BaseArrow_BaseArrow
+    3300002: BrokenArrow_BrokenArrow
+    3300004: ElfArrow_ElfArrow
+    3300006: MetallBloodyArrow_MetallBloodyArrow
+    3300008: StoneArrow_StoneArrow
+    3300010: StunArrow_StunArrow
+    4300000: BaseArrow_BaseArrow
+    4300002: BrokenArrow_BrokenArrow
+    4300004: ElfArrow_ElfArrow
+    4300006: MetallBloodyArrow_MetallBloodyArrow
+    4300008: StoneArrow_StoneArrow
+    4300010: StunArrow_StunArrow
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BaseArrow_BaseArrowMat
+    second: {fileID: 2100000, guid: f6ad1daaf4774de46b27f58d867433b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BrokenArrow_BrokenArrowMat
+    second: {fileID: 2100000, guid: db534397e8ec21a4c8305a82f3f7ddb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ElfArrow_ElfArrowMat
+    second: {fileID: 2100000, guid: 0e237e67225b2bb40a8a876bcc10eab8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetallBloodyArrow_MetallBloodyArrowMat
+    second: {fileID: 2100000, guid: 5f505660a0128e94d8ca20b58700af96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StoneArrow_StoneArrowMat
+    second: {fileID: 2100000, guid: 004a7f7804e59b04da6f2ef96a5cda31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StunArrow_StunArrowMat
+    second: {fileID: 2100000, guid: b7617b5d53f811240a54f31c24622224, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
