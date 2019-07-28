@@ -126,6 +126,7 @@ public class MainReactive : LivingBeing
 
     private void CharacterMove()
     {
+        
         //Get Keyboard Input
         float translation = Input.GetAxis("Vertical");
         float rotation = Input.GetAxis("Horizontal");
@@ -136,6 +137,7 @@ public class MainReactive : LivingBeing
 
         Rotate(rotation);
         characterAnim.SetFloat("moveSpeed", translation);
+        Roll();
     }
 
     private void Translate(float translation)
@@ -148,6 +150,14 @@ public class MainReactive : LivingBeing
 
         // Move translation along the object's z-axis
         transform.Translate(0, 0, translation);
+    }
+
+    private void Roll()
+    {
+        if(Input.GetButtonDown("Jump") && !characterAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            characterAnim.Play("Roll");
+        }
     }
 
     private void Rotate(float rotation)
