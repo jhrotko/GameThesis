@@ -33,13 +33,13 @@ public class Enemy : LivingBeing {
         dieing = false;
         hit = false;
 
-        InitializeLife(200.0f);
+        InitializeLife();
         ChangeState(State.IDLE);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(IsDead() && !dieing)
+        if (IsDead() && !dieing)
         {
             Die(anim);
             Death();
@@ -98,6 +98,7 @@ public class Enemy : LivingBeing {
                     anim.SetTrigger("AttackState");
                     nav.enabled = false;
                     rb.isKinematic = false;
+                    
                     break;
                 case State.HIT:
                     anim.SetTrigger("Hit");
@@ -108,7 +109,6 @@ public class Enemy : LivingBeing {
                     anim.SetTrigger("Run");
                     nav.enabled = true;
                     rb.isKinematic = true;
-                    Debug.Log(player.transform.position);
                     nav.SetDestination(player.transform.position);
                     break;
             }
@@ -132,19 +132,17 @@ public class Enemy : LivingBeing {
 
             if (GOCollided.CompareTag("Weapon"))
             {
-                Debug.Log("Life " + LifeCurrent);
                 Weapon weapon = GOCollided.GetComponent<Weapon>();
                 UpdateLife(weapon.damage);
                 weapon.damage = 0.0f;
                 hit = true;
             }
         }
-        
     }
 
     public void TakeDamage()
     {
-        if(IsPlayerClose(NEARANGLE, CLOSE))
+        if (IsPlayerClose(NEARANGLE, CLOSE))
             playerScript.UpdateLife(damage);
     }
 }

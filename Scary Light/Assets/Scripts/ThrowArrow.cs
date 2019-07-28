@@ -13,7 +13,6 @@ public class ThrowArrow : StateMachineBehaviour {
         newArrow = Instantiate(prefabArrow, prefabArrow.transform.position, prefabArrow.transform.rotation, prefabArrow.transform.parent);
         newArrow.SetActive(true);
         prepareArrow = 0.0f;
-        Debug.Log("LOL");
     }
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

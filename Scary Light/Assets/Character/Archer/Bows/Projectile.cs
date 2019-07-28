@@ -22,7 +22,6 @@ public class Projectile : Weapon
     void Update()
     {
         AttackRotation();
-        DestroyAfterTime(9);
 
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb.velocity != Vector3.zero)
@@ -38,9 +37,10 @@ public class Projectile : Weapon
         if (target.CompareTag("Enemy"))
         {
             //Remove health or do smt here
-            Debug.Log("I HITED AN ENEMY");
             transform.parent = collision.transform;
             GetComponent<BoxCollider>().enabled = false;
+            //Destroy(this);
+            Destroy(this.gameObject, 3.0f);
         }
 
         if (!target.CompareTag("Player"))

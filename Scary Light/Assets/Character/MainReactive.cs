@@ -39,7 +39,7 @@ public class MainReactive : LivingBeing
 
     private void Start()
     {
-        InitializeLife(100.0f);
+        InitializeLife();
         AllEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         characterAnim = GetComponent<Animator>();
@@ -55,7 +55,6 @@ public class MainReactive : LivingBeing
     }
 
     void Update () {
-
         if (IsDead())
         {
             Die(characterAnim);
