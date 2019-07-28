@@ -1,0 +1,34 @@
+Itens:
+- chests c/ loot
+- Coraçoes dos inimigos dão vida
+
+
+DINAMICS:
+	SINGULAR PLAYER
+	- Dar nome às personagens
+	- Quanto melhor a personagem se estiver a sentir, melhor os seus stats
+	- Quanto pior a personagem se estiver a sentir, pior os stats
+	- Criticals mais prováveis quanto melhor o estado emocional
+	- Quanto mais forte os inimigos melhor a reward
+
+	MULTIPLAYER
+	- dar alcunha quando a relaçao atinge um certo limiar
+	- SPLIT or STEAL quanto aos loots de chests
+
+LUZ
+	- Itensidade da luz depened do estado emocional da personagem; Quanto ais distressed a personagem estiver menos luz haverá
+	- Luz permite ver melhor o ambiente à volta
+	- Quanto mais escuro menos música ambiente e mais barulhos dos inimigos
+
+
+ARCHER
+	X Ataque com setas
+	- Ataque básico (close attack)
+	- Evade Back
+	- Roll (all directions)
+	- Smoke Bomb
+
+INTERFACE
+	- Dano causado em cima dos inimigos
+	- Critical em cima dos inimigos quando causado
+	- 
