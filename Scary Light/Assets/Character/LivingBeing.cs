@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class LivingBeing : MonoBehaviour {
 
-    public float LifeTotal;
-    public Image lifeBar;
-    public bool dead;
-    public Text TextDamage;
-    public Canvas canvasDamage;
+    [SerializeField] private float LifeTotal;
+    [SerializeField] private Image lifeBar;
+    [SerializeField] private Text TextDamage;
+    [SerializeField] private Canvas canvasDamage;
 
-    public float LifeCurrent;
+    public bool dead;
+
     protected List<Text> TextDmgLst;
+
+    private float LifeCurrent;
     private float fadeRate = 0.7f;
     
     public void InitializeLife()
     {
-        //LifeTotal = LifeTotal;
         LifeCurrent = LifeTotal;
         UpdateLifeBar();
         dead = false;
@@ -58,7 +59,6 @@ public class LivingBeing : MonoBehaviour {
 
     public void Die(Animator anim)
     {
-        //anim.SetTrigger("Dead");
         if(!dead)
             anim.Play("Dead", 0);
         dead = true;
@@ -76,10 +76,7 @@ public class LivingBeing : MonoBehaviour {
             progress += fadeRate * Time.deltaTime;
             yield return null;
         }
-        //TextDmgLst.Add(tDamage);
-        Debug.Log("Destroying ");
         Destroy(tDamage.gameObject);
-        //TextDmgLst.Add(tDamage); 
     }
 
     public void DestroyTexts()

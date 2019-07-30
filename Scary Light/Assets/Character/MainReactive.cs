@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class MainReactive : LivingBeing
 {
-    public bool side;
+    [SerializeField] private bool side;
     // ***************** CONSTANTS **********************
     // 
     private const float SPEED = 6.0f;
-    public float ROTATIONSPEED = 55.0f;
-    public float FORCE = 20.0f;
+    [SerializeField] private float ROTATIONSPEED = 55.0f;
+    [SerializeField] private float FORCE = 20.0f;
 
     // 
     //***************************************************
@@ -24,7 +24,7 @@ public class MainReactive : LivingBeing
     //
     // ****************************************************
 
-    public GameObject prefabArrow;
+    [SerializeField] private GameObject prefabArrow;
     private GameObject newArrow = null;
     private bool prepareArrow;
 
@@ -34,8 +34,9 @@ public class MainReactive : LivingBeing
     private Vector3 attackDirection;
 
     private GameObject head;
-
     private GameObject[] AllEnemies;
+
+    [SerializeField] private GameObject Smoke;
 
     private void Start()
     {
@@ -50,8 +51,7 @@ public class MainReactive : LivingBeing
         attackDirection = transform.forward;
 
         head = GameObject.Find("VirtualHead").transform.Find("Head").gameObject;
-        side = true;
-        
+        side = true;        
     }
 
     void Update () {
@@ -63,6 +63,7 @@ public class MainReactive : LivingBeing
             CharacterMove();
             SelectEnemy();
             MoveHead();
+            SmokeBomb();
             Attack();
             DestroyArrowHand();
         }
@@ -152,6 +153,37 @@ public class MainReactive : LivingBeing
         transform.Translate(0, 0, translation);
     }
 
+    private void SmokeBomb()
+    {
+        if (Input.GetButtonDown("Fire2"))
+        {
+            characterAnim.Play("Smoke Bomb");
+        }
+
+        if(characterAnim.GetCurrentAnimatorStateInfo(0).IsName("Back Flip"))
+        {
+            // Move translation along the object's z-axis
+            transform.Translate(0, 0, - Time.deltaTime * 4.0f);
+        }
+    }
+
+    private void StartSmoke()
+    {
+        Smoke.SetActive(true);
+        foreach(GameObject enem in AllEnemies)
+        {
+            if(enem.GetComponent<Enemy>().IsClose())
+            {
+                enem.GetComponent<Enemy>().GetStuned();
+            }
+        }
+    }
+
+    private void StopSmoke()
+    {
+        Smoke.SetActive(false);
+    }
+
     private void Roll()
     {
         if(Input.GetButtonDown("Jump") && !characterAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
@@ -232,9 +264,9 @@ public class MainReactive : LivingBeing
 
         if (!(animatorState.IsName("Start Attack") || animatorState.IsName("Attack")))
         {
-            if (prepareArrow)
+            if (prepareArrow && newArrow != null)
             {
-                Destroy(newArrow, 0.9f);
+                Destroy(newArrow.gameObject, 0.9f);
             }
         }
     }

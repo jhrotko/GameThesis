@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : LivingBeing {
 
-    private enum State {HIT, ATTACK, IDLE, RUN};
+    private enum State {HIT, ATTACK, IDLE, RUN, STUN};
     
     private const float NEARANGLE = 0.8f; //between -1 and 1 
     private const float NEARDISTANCE = 15.0f;
@@ -21,6 +21,7 @@ public class Enemy : LivingBeing {
     public bool attacked;
     private bool hit;
     private bool dieing;
+    private bool stuned;
 
 
 	// Use this for initialization
@@ -31,6 +32,7 @@ public class Enemy : LivingBeing {
         playerScript = player.GetComponent<MainReactive>();
         attacked = false;
         dieing = false;
+        stuned = false;
         hit = false;
 
         InitializeLife();
@@ -65,6 +67,11 @@ public class Enemy : LivingBeing {
                     //Debug.Log("AUCH");
                     ChangeState(State.HIT);
                 }
+                if(stuned)
+                {
+                    Debug.Log("STUNED");
+                    ChangeState(State.STUN);
+                }
             }
             else
             {
@@ -98,7 +105,6 @@ public class Enemy : LivingBeing {
                     anim.SetTrigger("AttackState");
                     nav.enabled = false;
                     rb.isKinematic = false;
-                    
                     break;
                 case State.HIT:
                     anim.SetTrigger("Hit");
@@ -111,10 +117,24 @@ public class Enemy : LivingBeing {
                     rb.isKinematic = true;
                     nav.SetDestination(player.transform.position);
                     break;
+                case State.STUN:
+                    anim.Play("Stuned");
+                    StartCoroutine(Stuned());
+                    break;
             }
         }
     }
     
+    private IEnumerator Stuned()
+    {
+        nav.enabled = false;
+        yield return new WaitForSeconds(5);
+        stuned = false;
+        nav.enabled = true;
+        anim.Play("Run");
+        ChangeState(State.RUN);
+        yield break;
+    }
 
     private bool IsPlayerClose(float angle, float distance)
     {
@@ -122,6 +142,16 @@ public class Enemy : LivingBeing {
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
         //Debug.Log("distance "+playerDistance);
         return Vector3.Dot(transform.forward, playerRelativePos) >= angle && playerDistance <= distance;
+    }
+
+    public bool IsClose()
+    {
+        return IsPlayerClose(NEARANGLE, NEARDISTANCE);
+    }
+
+    public void GetStuned()
+    {
+        stuned = true;
     }
     
     private void OnCollisionEnter(Collision collision)
