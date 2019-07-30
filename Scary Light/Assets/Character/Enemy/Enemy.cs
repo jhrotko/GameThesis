@@ -23,6 +23,8 @@ public class Enemy : LivingBeing {
     private bool dieing;
     private bool stuned;
 
+    [SerializeField] private GameObject StunedStars;
+
 
 	// Use this for initialization
 	void Start () {
@@ -128,8 +130,10 @@ public class Enemy : LivingBeing {
     private IEnumerator Stuned()
     {
         nav.enabled = false;
+        StunedStars.SetActive(true);
         yield return new WaitForSeconds(5);
         stuned = false;
+        StunedStars.SetActive(false);
         nav.enabled = true;
         anim.Play("Run");
         ChangeState(State.RUN);

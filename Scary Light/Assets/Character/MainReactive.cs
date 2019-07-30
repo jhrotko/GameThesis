@@ -11,7 +11,7 @@ public class MainReactive : LivingBeing
     // 
     private const float SPEED = 6.0f;
     [SerializeField] private float ROTATIONSPEED = 55.0f;
-    [SerializeField] private float FORCE = 20.0f;
+    [SerializeField] private float FORCE = 30.0f;
 
     // 
     //***************************************************
