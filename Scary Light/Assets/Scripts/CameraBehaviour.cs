@@ -32,8 +32,7 @@ public class CameraBehaviour : MonoBehaviour {
     {
         float translation = Input.GetAxis("Mouse ScrollWheel");
 
-        translation *= 2.0f;
-        offset.z += translation;
+        offset.z += translation * 2.0f;
     }
    
 
@@ -55,7 +54,7 @@ public class CameraBehaviour : MonoBehaviour {
 
     private void RotateCamera()
     {
-        if (Input.GetButton("Fire3"))
+        if (Input.GetButton("Mouse X"))
         {
             offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * 2.0f, Vector3.up) * offset;
             offset.x = LimitAngles(offset.x, min, max);

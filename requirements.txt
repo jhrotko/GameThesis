@@ -23,12 +23,12 @@ LUZ
 
 ARCHER
 	X Ataque com setas
-	- Ataque básico (close attack)
-	- Evade Back
-	- Roll (all directions)
-	- Smoke Bomb
+	X Ataque básico (close attack)
+	X Evade Back
+	X Roll (all directions)
+	X Smoke Bomb
 
 INTERFACE
-	- Dano causado em cima dos inimigos
+	X Dano causado em cima dos inimigos
 	- Critical em cima dos inimigos quando causado
 	- 

@@ -12,6 +12,7 @@ public class MainReactive : LivingBeing
     private const float SPEED = 6.0f;
     [SerializeField] private float ROTATIONSPEED = 55.0f;
     [SerializeField] private float FORCE = 30.0f;
+    [SerializeField] private float BASICDAMAGE = 2.0f;
 
     // 
     //***************************************************
@@ -37,6 +38,10 @@ public class MainReactive : LivingBeing
     private GameObject[] AllEnemies;
 
     [SerializeField] private GameObject Smoke;
+    private const float NEARDISTANCE = 7.0f;
+    private const float NEARANGLE = -1.0f;
+
+    private bool jumping;
 
     private void Start()
     {
@@ -51,7 +56,9 @@ public class MainReactive : LivingBeing
         attackDirection = transform.forward;
 
         head = GameObject.Find("VirtualHead").transform.Find("Head").gameObject;
-        side = true;        
+        side = true;
+
+        jumping = false;
     }
 
     void Update () {
@@ -163,7 +170,8 @@ public class MainReactive : LivingBeing
         if(characterAnim.GetCurrentAnimatorStateInfo(0).IsName("Back Flip"))
         {
             // Move translation along the object's z-axis
-            transform.Translate(0, 0, - Time.deltaTime * 4.0f);
+            if(jumping)
+                transform.Translate(0, 0, -Time.deltaTime * 10.0f);
         }
     }
 
@@ -172,7 +180,7 @@ public class MainReactive : LivingBeing
         Smoke.SetActive(true);
         foreach(GameObject enem in AllEnemies)
         {
-            if(enem.GetComponent<Enemy>().IsClose())
+            if(IsOtherClose(NEARANGLE, NEARDISTANCE, enem))
             {
                 enem.GetComponent<Enemy>().GetStuned();
             }
@@ -202,7 +210,11 @@ public class MainReactive : LivingBeing
 
     private void Attack()
     {
-        if(Input.GetButtonDown("Fire1") || (Input.GetAxis("Vertical") != 0 && isAttacking))
+        if (Input.GetButtonDown("Fire3"))
+        {
+            characterAnim.Play("Basic Attack");
+        }
+        else if(Input.GetButtonDown("Fire1") || (Input.GetAxis("Vertical") != 0 && isAttacking))
         {
             isAttacking = !isAttacking;
         }
@@ -271,5 +283,20 @@ public class MainReactive : LivingBeing
         }
     }
 
+    private void BasicAttack()
+    {
+        foreach (GameObject enem in AllEnemies)
+        {
+            if (IsOtherClose(NEARANGLE, NEARDISTANCE, enem))
+            {
+                enem.GetComponent<Enemy>().ReceiveDamage(BASICDAMAGE);
+            }
+        }
+    }
+
+    private void JumpFlip()
+    {
+        jumping = !jumping;
+    }
     
 }

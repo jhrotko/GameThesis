@@ -7,9 +7,10 @@ public class Enemy : LivingBeing {
 
     private enum State {HIT, ATTACK, IDLE, RUN, STUN};
     
-    private const float NEARANGLE = 0.8f; //between -1 and 1 
+    private const float NEARANGLE = -1.0f; //between -1 and 1 
     private const float NEARDISTANCE = 15.0f;
-    private const float CLOSE = 4.0f;
+    private const float CLOSEDISTANCE = 5.0f;
+    private const float CLOSEANGLE = 0.8f;
     public float damage = 5.0f;
 
     public GameObject player;
@@ -49,33 +50,40 @@ public class Enemy : LivingBeing {
             Death();
         }
         else {
-            bool near = IsPlayerClose(NEARANGLE, NEARDISTANCE);
-            bool close = IsPlayerClose(NEARANGLE, CLOSE);
-            
-            if(!IsPlayerDead())
+            bool near = IsOtherClose(NEARANGLE, NEARDISTANCE, player);
+            bool close = IsOtherClose(CLOSEANGLE, CLOSEDISTANCE, player);
+            bool withinRange = IsOtherClose(-1.0f, CLOSEDISTANCE + 15.0f, player);
+
+
+            Debug.Log("Close" + close);
+            Debug.Log("Near" + near);
+            Debug.Log("Attacked" + attacked);
+            Debug.Log("Hited" + hit);
+            Debug.Log("Stuned" + stuned);
+
+            if (!IsPlayerDead())
             {
-                if (close)
+                if (stuned)
                 {
-                    //Debug.Log("ITS NEAR ME");
+                    ChangeState(State.STUN);
+                }
+                else if (close)
+                {
                     ChangeState(State.ATTACK);
                 }
-                else if ((near && !attacked) || (!close && attacked))
+                else if ((near && !attacked) || (withinRange && attacked))
                 {
-                    //Debug.Log("ITS FAR");
                     ChangeState(State.RUN);
                 }
                 else if (hit)
                 {
-                    //Debug.Log("AUCH");
                     ChangeState(State.HIT);
                 }
-                if(stuned)
+                else
                 {
-                    Debug.Log("STUNED");
-                    ChangeState(State.STUN);
+                    ChangeState(State.IDLE);
                 }
-            }
-            else
+            } else
             {
                 ChangeState(State.IDLE);
             }
@@ -94,6 +102,19 @@ public class Enemy : LivingBeing {
         dieing = true;
     }
 
+
+    private void ActivateTrigger(string triggerName)
+    {
+        string[] triggers = { "IdleState", "AttackState", "Hit", "Run"};
+
+        for(int i = 0; i < triggers.Length; i++)
+        {
+            if(!triggers[i].Equals(triggerName))
+                anim.ResetTrigger(triggers[i]);
+        }
+        anim.SetTrigger(triggerName);
+    }
+
     private void ChangeState(State stateName)
     {
         if(!dieing)
@@ -101,26 +122,28 @@ public class Enemy : LivingBeing {
             switch (stateName)
             {
                 case State.IDLE:
-                    anim.SetTrigger("IdleState");
+                    ActivateTrigger("IdleState");
+                    nav.isStopped = true;
                     break;
                 case State.ATTACK:
-                    anim.SetTrigger("AttackState");
-                    nav.enabled = false;
+                    ActivateTrigger("AttackState");
+                    nav.isStopped = true;
                     rb.isKinematic = false;
                     break;
                 case State.HIT:
-                    anim.SetTrigger("Hit");
+                    ActivateTrigger("Hit");
                     attacked = true;
                     hit = false;
+                    nav.isStopped = true;
                     break;
                 case State.RUN:
-                    anim.SetTrigger("Run");
-                    nav.enabled = true;
-                    rb.isKinematic = true;
+                    ActivateTrigger("Run");
+                    nav.isStopped = false;
                     nav.SetDestination(player.transform.position);
                     break;
                 case State.STUN:
                     anim.Play("Stuned");
+                    nav.isStopped = true;
                     StartCoroutine(Stuned());
                     break;
             }
@@ -129,28 +152,11 @@ public class Enemy : LivingBeing {
     
     private IEnumerator Stuned()
     {
-        nav.enabled = false;
         StunedStars.SetActive(true);
         yield return new WaitForSeconds(5);
-        stuned = false;
         StunedStars.SetActive(false);
-        nav.enabled = true;
-        anim.Play("Run");
+        stuned = false;
         ChangeState(State.RUN);
-        yield break;
-    }
-
-    private bool IsPlayerClose(float angle, float distance)
-    {
-        Vector3 playerRelativePos = Vector3.Normalize(player.transform.position - transform.position);
-        float playerDistance = Vector3.Distance(player.transform.position, transform.position);
-        //Debug.Log("distance "+playerDistance);
-        return Vector3.Dot(transform.forward, playerRelativePos) >= angle && playerDistance <= distance;
-    }
-
-    public bool IsClose()
-    {
-        return IsPlayerClose(NEARANGLE, NEARDISTANCE);
     }
 
     public void GetStuned()
@@ -176,7 +182,13 @@ public class Enemy : LivingBeing {
 
     public void TakeDamage()
     {
-        if (IsPlayerClose(NEARANGLE, CLOSE))
+        if (IsOtherClose(NEARANGLE, CLOSEDISTANCE, player))
             playerScript.UpdateLife(damage);
+    }
+
+    public void ReceiveDamage(float damage)
+    {
+        hit = true;
+        UpdateLife(damage);
     }
 }

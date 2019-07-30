@@ -1565,8 +1565,9 @@ MonoBehaviour:
   canvasDamage: {fileID: 1756317185}
   dead: 0
   side: 0
-  ROTATIONSPEED: 55
+  ROTATIONSPEED: 100
   FORCE: 20
+  BASICDAMAGE: 2
   prefabArrow: {fileID: 763988269}
   Smoke: {fileID: 1150933671252589}
 --- !u!1 &1339220567141094
