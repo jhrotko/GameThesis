@@ -54,13 +54,6 @@ public class Enemy : LivingBeing {
             bool close = IsOtherClose(CLOSEANGLE, CLOSEDISTANCE, player);
             bool withinRange = IsOtherClose(-1.0f, CLOSEDISTANCE + 15.0f, player);
 
-
-            Debug.Log("Close" + close);
-            Debug.Log("Near" + near);
-            Debug.Log("Attacked" + attacked);
-            Debug.Log("Hited" + hit);
-            Debug.Log("Stuned" + stuned);
-
             if (!IsPlayerDead())
             {
                 if (stuned)
@@ -173,6 +166,7 @@ public class Enemy : LivingBeing {
             if (GOCollided.CompareTag("Weapon"))
             {
                 Weapon weapon = GOCollided.GetComponent<Weapon>();
+                Debug.Log("damage received " + weapon.damage);
                 UpdateLife(weapon.damage);
                 weapon.damage = 0.0f;
                 hit = true;

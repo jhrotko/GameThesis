@@ -43,6 +43,9 @@ public class MainReactive : LivingBeing
 
     private bool jumping;
 
+    private int CriticalChance = 3;
+    private int CriticalPower = 10;
+
     private void Start()
     {
         InitializeLife();
@@ -253,6 +256,7 @@ public class MainReactive : LivingBeing
                     
                 newArrow = Instantiate(prefabArrow, prefabArrow.transform.position, prefabArrow.transform.rotation, prefabArrow.transform.parent);
                 newArrow.SetActive(true);
+                newArrow.GetComponent<Projectile>().IncreaseDamage(Critical());
                 prepareArrow = false;
             }
         }
@@ -289,7 +293,7 @@ public class MainReactive : LivingBeing
         {
             if (IsOtherClose(NEARANGLE, NEARDISTANCE, enem))
             {
-                enem.GetComponent<Enemy>().ReceiveDamage(BASICDAMAGE);
+                enem.GetComponent<Enemy>().ReceiveDamage(BASICDAMAGE + Critical());
             }
         }
     }
@@ -297,6 +301,20 @@ public class MainReactive : LivingBeing
     private void JumpFlip()
     {
         jumping = !jumping;
+    }
+
+    private float Critical()
+    {
+        System.Random rand = new System.Random();
+        if(rand.Next(1, CriticalChance) < 2)
+        {
+            Debug.Log("CRITICAL!!!!!!");
+            return CriticalPower;
+        } else
+        {
+            return 0.0f;
+        }
+
     }
     
 }

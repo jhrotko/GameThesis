@@ -9,16 +9,13 @@ public class Projectile : Weapon
     private const float DEATHTIME = 9.0f;
     private bool collided;
 
-    // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         anim = character.GetComponent<Animator>();
         collided = false;
-        damage = 5.0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         AttackRotation();
@@ -28,7 +25,11 @@ public class Projectile : Weapon
         {
             GetComponent<BoxCollider>().enabled = true;
         }
-        
+    }
+
+    public void IncreaseDamage(float damage)
+    {
+        this.damage += damage;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -39,17 +40,14 @@ public class Projectile : Weapon
             //Remove health or do smt here
             transform.parent = collision.transform;
             GetComponent<BoxCollider>().enabled = false;
-            //Destroy(this);
-            Destroy(this.gameObject, 3.0f);
+            Destroy(gameObject, 3.0f);
         }
 
         if (!target.CompareTag("Player"))
         {
-           
             rb.constraints = RigidbodyConstraints.FreezeRotation;
             rb.velocity = Vector3.zero;
             rb.useGravity = false;
-
             collided = true;
         }
     }
@@ -63,11 +61,5 @@ public class Projectile : Weapon
             if (rb.velocity != Vector3.zero)
                 transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
-    }
-
-    private void DestroyAfterTime(float time)
-    {
-        if (collided)
-            Destroy(this.gameObject, time);
     }
 }
