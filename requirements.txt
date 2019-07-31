@@ -30,5 +30,4 @@ ARCHER
 
 INTERFACE
 	X Dano causado em cima dos inimigos
-	- Critical em cima dos inimigos quando causado
-	- 
+	X Critical em cima dos inimigos quando causado 
