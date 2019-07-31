@@ -25,6 +25,7 @@ public class Enemy : LivingBeing {
     private bool stuned;
 
     [SerializeField] private GameObject StunedStars;
+    [SerializeField] private GameObject CrystalHeart;
 
 
 	// Use this for initialization
@@ -93,6 +94,17 @@ public class Enemy : LivingBeing {
         nav.enabled = false;
         Destroy(gameObject, 5.0f);
         dieing = true;
+        StartCoroutine(CrystalSpawn());
+    }
+
+    private IEnumerator CrystalSpawn()
+    {
+        yield return new WaitForSeconds(4.9f);
+
+        CrystalHeart.transform.Translate(0.0f, 4.0f, 0.0f);
+        CrystalHeart.transform.parent = null;
+        CrystalHeart.SetActive(true);
+        CrystalHeart.GetComponent<CrystaAnim>().BounceForAWhile();
     }
 
 

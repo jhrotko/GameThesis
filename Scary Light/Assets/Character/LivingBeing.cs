@@ -25,14 +25,14 @@ public class LivingBeing : MonoBehaviour {
         TextDmgLst = new List<Text>();
     }
 
-    public void CreateTextDamage(float damage)
+    public void CreateTextDamage(float damage, string sign = "-")
     {
         Text tDamage = Instantiate(TextDamage);
         tDamage.transform.SetParent(canvasDamage.transform);
         tDamage.GetComponent<RectTransform>().localScale = TextDamage.transform.localScale;
         tDamage.GetComponent<RectTransform>().rotation = TextDamage.transform.rotation;
         tDamage.GetComponent<RectTransform>().position = TextDamage.transform.position;
-        tDamage.text = "-" + damage;
+        tDamage.text = sign + damage;
 
 
         StartCoroutine(FadeOut(tDamage));
@@ -48,8 +48,14 @@ public class LivingBeing : MonoBehaviour {
         LifeCurrent -= damage;
         UpdateLifeBar();
 
-        if(damage > 0.0f)
+        if (damage > 0.0f)
             CreateTextDamage(damage);
+        else if (damage < 0.0f)
+        {
+            damage = -damage;
+            CreateTextDamage(damage, "+");
+        }
+           
     }
 
     public bool IsDead()

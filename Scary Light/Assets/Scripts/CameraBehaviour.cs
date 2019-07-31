@@ -30,9 +30,10 @@ public class CameraBehaviour : MonoBehaviour {
 
     private void ZoomCamera()
     {
-        float translation = Input.GetAxis("Mouse ScrollWheel");
+        float translation = -Input.GetAxis("Mouse ScrollWheel");
 
-        offset.z += translation * 2.0f;
+        Vector3 zoom = Vector3.Normalize(transform.position - LookAtMe.transform.position) * translation;
+        offset += zoom;
     }
    
 

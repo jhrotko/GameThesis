@@ -1,6 +1,6 @@
 Itens:
 - chests c/ loot
-- Coraçoes dos inimigos dão vida
+X Coraçoes dos inimigos dão vida
 
 
 DINAMICS:

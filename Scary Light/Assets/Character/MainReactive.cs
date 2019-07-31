@@ -314,7 +314,14 @@ public class MainReactive : LivingBeing
         {
             return 0.0f;
         }
-
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Crystal"))
+        {
+            UpdateLife(-collision.gameObject.GetComponent<CrystaAnim>().HPGain);
+        }
+    }
+
 }
