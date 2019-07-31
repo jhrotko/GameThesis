@@ -8,8 +8,8 @@ public class Enemy : LivingBeing {
     private enum State {HIT, ATTACK, IDLE, RUN, STUN};
     
     private const float NEARANGLE = -1.0f; //between -1 and 1 
-    private const float NEARDISTANCE = 15.0f;
-    private const float CLOSEDISTANCE = 5.0f;
+    private const float NEARDISTANCE = 5.0f;
+    private const float CLOSEDISTANCE = 2.0f;
     private const float CLOSEANGLE = 0.8f;
     public float damage = 5.0f;
 
@@ -101,7 +101,7 @@ public class Enemy : LivingBeing {
     {
         yield return new WaitForSeconds(4.9f);
 
-        CrystalHeart.transform.Translate(0.0f, 4.0f, 0.0f);
+        CrystalHeart.transform.Translate(0.0f, 3.0f, 0.0f);
         CrystalHeart.transform.parent = null;
         CrystalHeart.SetActive(true);
         CrystalHeart.GetComponent<CrystaAnim>().BounceForAWhile();
@@ -178,7 +178,6 @@ public class Enemy : LivingBeing {
             if (GOCollided.CompareTag("Weapon"))
             {
                 Weapon weapon = GOCollided.GetComponent<Weapon>();
-                Debug.Log("damage received " + weapon.damage);
                 UpdateLife(weapon.damage);
                 weapon.damage = 0.0f;
                 hit = true;

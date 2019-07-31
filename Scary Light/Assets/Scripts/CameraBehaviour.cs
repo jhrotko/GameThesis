@@ -32,7 +32,7 @@ public class CameraBehaviour : MonoBehaviour {
     {
         float translation = -Input.GetAxis("Mouse ScrollWheel");
 
-        Vector3 zoom = Vector3.Normalize(transform.position - LookAtMe.transform.position) * translation;
+        Vector3 zoom = Vector3.Normalize(transform.position - LookAtMe.transform.position) * translation * 5.0f;
         offset += zoom;
     }
    

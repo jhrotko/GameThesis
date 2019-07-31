@@ -9,7 +9,7 @@ public class MainReactive : LivingBeing
     [SerializeField] private bool side;
     // ***************** CONSTANTS **********************
     // 
-    private const float SPEED = 6.0f;
+    private const float SPEED = 3.0f;
     [SerializeField] private float ROTATIONSPEED = 55.0f;
     [SerializeField] private float FORCE = 30.0f;
     [SerializeField] private float BASICDAMAGE = 2.0f;
@@ -226,8 +226,10 @@ public class MainReactive : LivingBeing
         if (selectedTarget != null && isAttacking)
             transform.forward = Vector3.Normalize(selectedTarget.position - transform.position);
 
-        characterAnim.SetBool("isAttacking", isAttacking);
+        if (selectedTarget != null && selectedTarget.GetComponent<Enemy>().IsDead())
+            isAttacking = false;
 
+        characterAnim.SetBool("isAttacking", isAttacking);
         ThrowArrow();
     }
 

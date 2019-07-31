@@ -96,9 +96,14 @@ public class LivingBeing : MonoBehaviour {
 
     public bool IsOtherClose(float angle, float distance, GameObject other)
     {
-        Vector3 playerRelativePos = Vector3.Normalize(other.transform.position - transform.position);
-        float playerDistance = Vector3.Distance(other.transform.position, transform.position);
-        //Debug.Log("distance "+playerDistance);
-        return Vector3.Dot(transform.forward, playerRelativePos) >= angle && playerDistance <= distance;
+        if(other != null)
+        {
+            Vector3 playerRelativePos = Vector3.Normalize(other.transform.position - transform.position);
+            float playerDistance = Vector3.Distance(other.transform.position, transform.position);
+            //Debug.Log("distance "+playerDistance);
+            return Vector3.Dot(transform.forward, playerRelativePos) >= angle && playerDistance <= distance;
+        }
+
+        return false;
     }
 }
